@@ -50273,6 +50273,7 @@ module.exports = function(module) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _store_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./store/index.js */ "./resources/js/store/index.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -50300,8 +50301,10 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  store: _store_index_js__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 
 /***/ }),
@@ -50430,6 +50433,113 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/store/api/all.js":
+/*!***************************************!*\
+  !*** ./resources/js/store/api/all.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  getMessages: function getMessages(id) {//
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/index.js":
+/*!*************************************!*\
+  !*** ./resources/js/store/index.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _modules_messages__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/messages */ "./resources/js/store/modules/messages.js");
+
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].store({
+  modules: {
+    messages: _modules_messages__WEBPACK_IMPORTED_MODULE_2__["default"]
+  }
+}));
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/message.js":
+/*!***********************************************!*\
+  !*** ./resources/js/store/modules/message.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _api_all__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../api/all */ "./resources/js/store/api/all.js");
+
+var state = {
+  message: null,
+  loadingMessage: false
+};
+var getters = {};
+var actions = {};
+var mutations = {};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/messages.js":
+/*!************************************************!*\
+  !*** ./resources/js/store/modules/messages.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _api_all__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../api/all */ "./resources/js/store/api/all.js");
+/* harmony import */ var _message__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./message */ "./resources/js/store/modules/message.js");
+
+
+var state = {
+  messages: [],
+  loadingMessages: false
+};
+var getters = {};
+var actions = {};
+var mutations = {
+  getMessages: function getMessages(_ref, page) {//
+
+    var dispatch = _ref.dispatch,
+        commit = _ref.commit;
+  }
+};
+var modules = {
+  message: _message__WEBPACK_IMPORTED_MODULE_1__["default"]
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations,
+  modules: modules
+});
 
 /***/ }),
 

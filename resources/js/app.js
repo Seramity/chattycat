@@ -30,6 +30,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+import store from './store/index.js'
+
 const app = new Vue({
     el: '#app',
+    store
 });
