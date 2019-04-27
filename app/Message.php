@@ -18,7 +18,7 @@ class Message extends Model
       return $this->belongsToMany(User::class);
    }
 
-   public function userExpectCurrentlyAuthenticated()
+   public function userExcectCurrentlyAuthenticated()
    {
       return $this->user()->where('user_id', '!=', \Auth::user()->id);
    }
