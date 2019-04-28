@@ -20,7 +20,7 @@ class Message extends Model
 
    public function usersExceptCurrentlyAuthenticated()
    {
-      return $this->user()->where('user_id', '!=', \Auth::user()->id);
+      return $this->users()->where('user_id', '!=', \Auth::user()->id);
    }
 
    public function replies()

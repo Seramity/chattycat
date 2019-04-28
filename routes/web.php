@@ -17,4 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::group(['prefix' => 'webapi', 'namespace' => 'Api'], function () {
+   Route::get('/messages', 'MessageController@index');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/messages', 'MessageController@index')->name('messages');

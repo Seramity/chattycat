@@ -5,7 +5,7 @@ import messages from './modules/messages'
 
 Vue.use(Vuex)
 
-export default new Vuex.store({
+export default new Vuex.Store({
    modules: {
       messages
    }

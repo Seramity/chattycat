@@ -7,16 +7,22 @@ const state = {
 }
 
 const getters = {
-
+   allMessages: state => {
+      return state.messages
+   }
 }
 
 const actions = {
-
+   getMessages ({dispatch, commit}, page) {
+      api.getMessages(1).then((response) => {
+         commit('setMessages', response.data.data)
+      })
+   }
 }
 
 const mutations = {
-   getMessages ({dispatch, commit}, page) {
-      //
+   setMessages (state, messages) {
+      state.messages = messages
    }
 }
 
