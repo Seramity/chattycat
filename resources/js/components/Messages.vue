@@ -4,11 +4,13 @@
          All conversations
       </div>
 
-      <ul class="list-group list-group-flush" v-for="message in messages">
+      <div v-if="loading" class="loader">Loading...</div>
+
+      <ul class="list-group list-group-flush" v-for="message in messages" v-else-if="messages.length">
          <li class="list-group-item">
-            <a href="#">{{ message.body }}</a>
+            <a href="#">{{ trunc(message.body, 50) }}</a>
             <p class="text-muted">
-               You and {{ message.participant_count }} others
+               You and {{ message.participant_count }} {{ pluralize('other', message.participant_count) }}
             </p>
 
             <ul class="list-inline">
@@ -22,20 +24,27 @@
          </li>
       </ul>
 
+      <div v-else>No conversations</div>
+
    </div>
 </template>
 
 <script>
+   import trunc from '../helpers/trunc'
+   import pluralize from 'pluralize'
    import { mapActions, mapGetters } from 'vuex'
 
    export default {
       computed: mapGetters({
-         messages: 'allMessages'
+         messages: 'allMessages',
+         loading: 'loadingMessages'
       }),
       methods: {
          ...mapActions([
             'getMessages'
-         ])
+         ]),
+         trunc: trunc,
+         pluralize: pluralize
       },
 
       mounted() {
