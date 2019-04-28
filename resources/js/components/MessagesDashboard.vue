@@ -5,7 +5,7 @@
               <messages></messages>
            </div>
            <div class="col-sm-7">
-              Conversation
+              <message></message>
            </div>
         </div>
     </div>
